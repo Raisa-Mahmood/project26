@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+    <style>
+        body {
+            padding: 20px;
+            margin: 60px;
+            border: 2px solid lavender;
+            background: linear-gradient(white, azure);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Project: Async Function in JavaScript</h2>
+    <p>Enter two numbers:</p>
+    <p>
+        <input id=p1 type=number>
+    </p>
+    <p>*</p>
+    <p>
+        <input id=p2 type=number>
+    </p>
+    <p>
+        <button onclick=multiply()>Calculate</button>
+    </p>
+    <p id=p3></p>
+    <p id=p4></p>
+    <script>
+        async function multiply() {
+            var num1 = +document.getElementById("p1").value;
+            var num2 = +document.getElementById("p2").value;
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("p3").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+            var product = await (num1 * num2);
+            display(product, num1, num2);
+        }
+
+        function display(answer, a, b) {
+            document.getElementById("p3").innerHTML = "The product of " + a + " and " + b + " is " + Math.floor(answer) + ".";
+            document.getElementById("p4").innerHTML = "Placing integers are recommended."
+        }
+
+    </script>
+</body>
+
+</html>
